@@ -10,8 +10,8 @@ A Cacheable Network Library For Android Application
     `implementation 'com.github.noman404:Cacheable-Network:1.0.2'`
 	
 	Supports both:
-	- XML / JSON REST
-	- XML / JSON RPC
+	- XML/JSON REST
+	- [JSON-RPC](https://en.wikipedia.org/wiki/JSON-RPC)
 
 The total scenario of network calling is to communicate with server and get back the result. So, for this two action using this library you need to instantiate `ApiAdapter` class to perform network call and invoke `NetworkResponse` interface to receive the results (to receive both error and success message)
 

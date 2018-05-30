@@ -1,4 +1,4 @@
-# Cacheable-Network
+## Cacheable-Network
 A Cacheable Network Library For Android Application 
 
 - in your top level *build.gradle* file add the **jitpack** dependency 
@@ -9,15 +9,18 @@ A Cacheable Network Library For Android Application
     
     `implementation 'com.github.noman404:Cacheable-Network:1.0.2'`
 	
-	Supports both:
-	- XML/JSON REST
+	
+- Supports both:
+	- XML / JSON REST
 	- [JSON-RPC](https://en.wikipedia.org/wiki/JSON-RPC)
 
-The total scenario of network calling is to communicate with server and get back the result. So, for this two action using this library you need to instantiate `ApiAdapter` class to perform network call and invoke `NetworkResponse` interface to receive the results (to receive both error and success message)
+## **Intro**
+
+The total scenario of A network calling is to communicate with server then get back the result. So, to handle this two action using this library you need to instantiate `ApiAdapter` class to perform A network call and invoke `NetworkResponse` interface to receive the results (to receive both error and success message)
+
+## **Make A Network Call**
 
 To perform a network call use following methods as per you endpoint type after creating the `ApiAdapter` instance.
-
-*(to use the cache, pass the last paramater `boolean useCache` as `true`, you'll get cached data if you have them erlier i.e. this module automatically store cache if you pass true to use later as cache, that means if you don't hit the endpoint with these method with `useCache = true`, you won't get cache data later.)*
 
 - To make a json object request,
 
@@ -70,6 +73,9 @@ To perform a network call use following methods as per you endpoint type after c
                                                   HashMap<String, String> params,
                                                   Object reference);`
 
+
+## **To Receive The Response**
+
 To receive the response from server you can use the interface `NetworkResponse` as the way you want (as innerclass, method level, class level), Once you implement the class you'll get
 
 - To receive the message whose status code 200. `String response` the server response, 
@@ -95,6 +101,8 @@ To receive the response from server you can use the interface `NetworkResponse` 
             NetworkStatus networkStatus,
             Object reference);`
 
+## **Cache**
 
-***Fork is welcome, but make sure you've unit test your code before make pull request.*
-**
+To use the cache, pass the last paramater `boolean useCache` as `true` in every network call. You'll get cached data if you have stored them erlier, meaning to say, this module automatically store response as cache if you pass `useCache = true`. So, if you don't hit the endpoint with these method with `useCache = true`, you won't get cache data later.
+
+![Sample](https://github.com/noman404/Cacheable-Network/blob/master/graphics/uml.png?raw=true)

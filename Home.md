@@ -1,5 +1,18 @@
-## Cacheable-Network
+# Cacheable-Network
 A Cacheable Network Library For Android Application 
+
+[![](https://jitpack.io/v/noman404/Cacheable-Network.svg)](https://jitpack.io/#noman404/Cacheable-Network)
+[![Build Status](https://travis-ci.org/noman404/Cacheable-Network.svg?branch=master)](https://travis-ci.org/noman404/Cacheable-Network)
+
+## **Intro**
+
+The total scenario of A network calling is to communicate with server then get back the result. So, to handle this two action using this library you need to instantiate `ApiAdapter` class to perform A network call and invoke `NetworkResponse` interface to receive the results (to receive both error and success message)
+	
+- Supports both (Standard):
+	- XML / JSON RESTful Service
+	- [JSON-RPC Service](https://en.wikipedia.org/wiki/JSON-RPC)
+
+## **Usage**
 
 - in your top level *build.gradle* file add the **jitpack** dependency 
     
@@ -8,25 +21,16 @@ A Cacheable Network Library For Android Application
 - in application level *build.gradle* add the *Cacheable-Network* dependency
     
     `implementation 'com.github.noman404:Cacheable-Network:1.0.2'`
-	
-	
-- Supports both:
-	- XML / JSON REST
-	- [JSON-RPC](https://en.wikipedia.org/wiki/JSON-RPC)
-
-## **Intro**
-
-The total scenario of A network calling is to communicate with server then get back the result. So, to handle this two action using this library you need to instantiate `ApiAdapter` class to perform A network call and invoke `NetworkResponse` interface to receive the results (to receive both error and success message)
 
 ## **Make A Network Call**
 
 To perform a network call use following methods as per you endpoint type after creating the `ApiAdapter` instance.
 
-- To make a json object request,
+- **To make a json object request,**
 
 
-    `public void JsonObjectRequest(
-	                                       int requestMethod,
+    `public void jsonObjectRequest(
+	                                   int requestMethod,
                                            String endpoint,
                                            HashMap<String, String> header,
                                            HashMap<String, String> params,
@@ -34,11 +38,11 @@ To perform a network call use following methods as per you endpoint type after c
                                            Object reference,
                                            boolean useCache);`
 
-- To make a jsonArray request,
+- **To make a jsonArray request,**
 
 
-    `public void JsonArrayRequest(
-	                                      int requestMethod,
+    `public void jsonArrayRequest(
+	                                  int requestMethod,
                                           String endpoint,
                                           HashMap<String, String> header,
                                           HashMap<String, String> params,
@@ -46,17 +50,17 @@ To perform a network call use following methods as per you endpoint type after c
                                           Object reference,
                                           boolean useCache);`
 										  
-- To make a Plain String request,
+- **To make a Plain String request,**
 
 
-    `public void StringRequest(
-	                                   int requestMethod,
+    `public void stringRequest(
+	                               int requestMethod,
                                        String endpoint,
                                        HashMap<String, String> header,
                                        HashMap<String, String> params,
                                        Object reference,
                                        boolean useCache);`
-- To make a Form data request,
+- **To make a Form data request,**
 
 
     `public void formDataRequest(String endpoint,
@@ -65,10 +69,10 @@ To perform a network call use following methods as per you endpoint type after c
                                          Object reference,
                                          boolean useCache);`
 
-- To make a Multipart request (specially for files),
+- **To make a Multipart request (specially for files),**
 
 
-   `public void MultipartFormDataRequest(String endpoint,
+   `public void multipartFormDataRequest(String endpoint,
                                                   HashMap<String, String> header,
                                                   HashMap<String, String> params,
                                                   Object reference);`
@@ -78,15 +82,15 @@ To perform a network call use following methods as per you endpoint type after c
 
 To receive the response from server you can use the interface `NetworkResponse` as the way you want (as innerclass, method level, class level), Once you implement the class you'll get
 
-- To receive the message whose status code 200. `String response` the server response, 
- `Object reference` is a optional reference object if you need. 
+- **To receive the message whose status code is 200. (`String response` the server response, 
+ `Object reference` is a optional reference object if you need.)** 
  
 
     `void onSuccessResponse(
             String response,
             Object reference);`
 
-- To receive the error respones, if occours.
+- **To receive the error respones, if occours.**
 
 
     `void onErrorResponse(
@@ -94,7 +98,7 @@ To receive the response from server you can use the interface `NetworkResponse` 
             String error,
             Object reference);`
 
-- To receive the authentication error respones, if occours only for status code `401` & `403`.
+- **To receive the authentication error respones, if occours only for status code `401` & `403`.**
 
 
     `void onAuthError(
